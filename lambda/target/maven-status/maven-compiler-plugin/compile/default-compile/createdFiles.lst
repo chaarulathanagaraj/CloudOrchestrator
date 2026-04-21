@@ -1,0 +1,9 @@
+com\cloudcostguardian\PolicyEngine.class
+com\cloudcostguardian\Notifier.class
+com\cloudcostguardian\CloudWatchUtilization$IdleResult.class
+com\cloudcostguardian\EvaluationResult.class
+com\cloudcostguardian\CloudWatchUtilization.class
+com\cloudcostguardian\Handler.class
+com\cloudcostguardian\Settings.class
+com\cloudcostguardian\AuditLogger.class
+com\cloudcostguardian\AwsClients.class
