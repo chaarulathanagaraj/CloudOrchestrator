@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="950" viewBox="0 0 1600 950" role="img" aria-labelledby="title desc">
+  <title id="title">Cloud Orchestrator Workflow Architecture</title>
+  <desc id="desc">A polished architecture workflow diagram for resource monitoring, schedule-triggered scanning, notifications, remediation, audit logging, and observability.</desc>
+
+  <defs>
+    <linearGradient id="canvasBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#fbfbfd" />
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#9ca3af" flood-opacity="0.18" />
+    </filter>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#2d7dd2" />
+    </marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#4c9c5a" />
+    </marker>
+    <marker id="arrowPurple" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#8b5cf6" />
+    </marker>
+    <marker id="arrowGray" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#6b7280" />
+    </marker>
+    <style>
+      .title { font: 700 48px 'Segoe UI', Arial, sans-serif; fill: #202124; }
+      .subtitle { font: 600 18px 'Segoe UI', Arial, sans-serif; fill: #9ca3af; letter-spacing: 0.22em; }
+      .section { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #8b8f97; letter-spacing: 0.12em; }
+      .label { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #2d3748; }
+      .body { font: 500 16px 'Segoe UI', Arial, sans-serif; fill: #6b7280; }
+      .small { font: 500 14px 'Segoe UI', Arial, sans-serif; fill: #6b7280; }
+      .tiny { font: 500 13px 'Segoe UI', Arial, sans-serif; fill: #8b8f97; }
+      .panel { fill: #ffffff; stroke: #d8dbe2; stroke-width: 1.5; rx: 16; filter: url(#softShadow); }
+      .card { rx: 12; stroke-width: 1.3; filter: url(#softShadow); }
+      .icon { rx: 6; }
+      .flowBlue { stroke: #2d7dd2; stroke-width: 2.8; fill: none; marker-end: url(#arrowBlue); }
+      .flowGreen { stroke: #4c9c5a; stroke-width: 2.8; fill: none; marker-end: url(#arrowGreen); }
+      .flowPurple { stroke: #8b5cf6; stroke-width: 2.8; fill: none; marker-end: url(#arrowPurple); }
+      .flowGray { stroke: #9ca3af; stroke-width: 2.2; fill: none; stroke-dasharray: 7 7; marker-end: url(#arrowGray); }
+      .stepTitle { font: 700 14px 'Segoe UI', Arial, sans-serif; fill: #9ca3af; letter-spacing: 0.08em; }
+      .stepText { font: 700 14px 'Segoe UI', Arial, sans-serif; fill: #2d3748; }
+      .stepBody { font: 500 12px 'Segoe UI', Arial, sans-serif; fill: #6b7280; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="950" fill="url(#canvasBg)" />
+  <rect x="30" y="30" width="1540" height="900" rx="12" fill="#ffffff" stroke="#d8dbe2" stroke-width="1.5" />
+
+  <text x="800" y="76" text-anchor="middle" class="title">Cloud Orchestrator</text>
+  <text x="800" y="100" text-anchor="middle" class="subtitle">AUTOMATED DETECTION · ALERTING · REMEDIATION · AUDIT</text>
+
+  <text x="73" y="131" class="section">1. AWS RESOURCES</text>
+  <rect x="72" y="142" width="270" height="110" class="card" fill="#fff6ec" stroke="#f0cf9e" />
+  <rect x="84" y="155" width="24" height="24" class="icon" fill="#f28a00" />
+  <text x="96" y="171" text-anchor="middle" class="stepText" fill="#ffffff">EC</text>
+  <text x="114" y="171" class="label" fill="#b45309">EC2 Instances</text>
+  <text x="114" y="194" class="small">Idle & running</text>
+  <text x="114" y="216" class="small">resources monitored</text>
+
+  <rect x="72" y="260" width="270" height="110" class="card" fill="#fff6ec" stroke="#f0cf9e" />
+  <rect x="84" y="273" width="24" height="24" class="icon" fill="#f28a00" />
+  <text x="96" y="289" text-anchor="middle" class="stepText" fill="#ffffff">AS</text>
+  <text x="114" y="289" class="label" fill="#b45309">Auto Scaling Groups</text>
+  <text x="114" y="312" class="small">Unused ASGs with</text>
+  <text x="114" y="334" class="small">capacity waste</text>
+
+  <rect x="72" y="378" width="270" height="110" class="card" fill="#eefcf8" stroke="#9dd7c5" />
+  <rect x="84" y="391" width="24" height="24" class="icon" fill="#2f9e8a" />
+  <text x="96" y="407" text-anchor="middle" class="stepText" fill="#ffffff">CW</text>
+  <text x="114" y="407" class="label" fill="#0f766e">CloudWatch</text>
+  <text x="114" y="430" class="small">CPU & network metrics</text>
+  <text x="114" y="452" class="small">source</text>
+
+  <text x="442" y="131" class="section">2. SCHEDULE</text>
+  <rect x="432" y="144" width="616" height="88" class="card" fill="#f4efff" stroke="#d6c6f5" />
+  <rect x="450" y="165" width="24" height="24" class="icon" fill="#7c3aed" />
+  <text x="462" y="181" text-anchor="middle" class="stepText" fill="#ffffff">E</text>
+  <text x="480" y="177" class="label" fill="#5b21b6">Amazon EventBridge Scheduler</text>
+  <text x="480" y="200" class="small">Triggers full scan every 3 hours automatically</text>
+
+  <text x="1145" y="131" class="section">4. NOTIFICATIONS</text>
+  <rect x="1180" y="144" width="278" height="104" class="card" fill="#fde8f0" stroke="#d8a3c0" />
+  <rect x="1194" y="162" width="24" height="24" class="icon" fill="#d63384" />
+  <text x="1206" y="178" text-anchor="middle" class="stepText" fill="#ffffff">SNS</text>
+  <text x="1226" y="177" class="label" fill="#9d174d">Amazon SNS</text>
+  <text x="1226" y="200" class="small">Real-time alerts to</text>
+  <text x="1226" y="220" class="small">email, SMS & webhook</text>
+
+  <text x="1145" y="304" class="section">5. AUDIT LOGGING</text>
+  <rect x="1180" y="318" width="278" height="104" class="card" fill="#f2ebff" stroke="#d7c9f7" />
+  <rect x="1194" y="336" width="24" height="24" class="icon" fill="#7c3aed" />
+  <text x="1206" y="352" text-anchor="middle" class="stepText" fill="#ffffff">DB</text>
+  <text x="1226" y="351" class="label" fill="#6d28d9">Amazon DynamoDB</text>
+  <text x="1226" y="374" class="small">Stores every action with</text>
+  <text x="1226" y="394" class="small">full traceability</text>
+
+  <text x="1145" y="474" class="section">7. OBSERVABILITY</text>
+  <rect x="1180" y="486" width="278" height="104" class="card" fill="#ecf3ff" stroke="#bed0f7" />
+  <rect x="1194" y="504" width="24" height="24" class="icon" fill="#2b78da" />
+  <text x="1206" y="520" text-anchor="middle" class="stepText" fill="#ffffff">CW</text>
+  <text x="1226" y="519" class="label" fill="#1d4ed8">Amazon CloudWatch</text>
+  <text x="1226" y="542" class="small">Lambda logs, metrics &</text>
+  <text x="1226" y="562" class="small">error alarms</text>
+
+  <rect x="1180" y="598" width="278" height="40" rx="10" fill="#ffffff" stroke="#e3e5ea" stroke-dasharray="5 5" />
+  <text x="1320" y="623" text-anchor="middle" class="tiny">Feedback loop back to resource layer</text>
+
+  <text x="450" y="285" class="section">3. COMPUTE &amp; EVALUATE</text>
+  <rect x="432" y="297" width="616" height="258" class="card" fill="#fffdf9" stroke="#e1bb68" />
+  <rect x="452" y="314" width="24" height="24" class="icon" fill="#f59e0b" />
+  <text x="464" y="330" text-anchor="middle" class="stepText" fill="#ffffff">λ</text>
+  <text x="482" y="330" class="label" fill="#b45309">AWS LAMBDA — SCANNER FUNCTION</text>
+
+  <rect x="454" y="350" width="108" height="188" class="card" fill="#fff6ec" stroke="#f0cf9e" />
+  <text x="508" y="378" text-anchor="middle" class="stepText" fill="#b45309">Discover</text>
+  <text x="508" y="402" text-anchor="middle" class="stepBody">Fetch</text>
+  <text x="508" y="420" text-anchor="middle" class="stepBody">EC2 &amp;</text>
+  <text x="508" y="438" text-anchor="middle" class="stepBody">ASG</text>
+  <text x="508" y="456" text-anchor="middle" class="stepBody">inventory</text>
+
+  <rect x="570" y="350" width="108" height="188" class="card" fill="#ebfbfb" stroke="#bfe3e7" />
+  <text x="624" y="378" text-anchor="middle" class="stepText" fill="#0f766e">Collect</text>
+  <text x="624" y="402" text-anchor="middle" class="stepBody">Pull</text>
+  <text x="624" y="420" text-anchor="middle" class="stepBody">CloudWatch</text>
+  <text x="624" y="438" text-anchor="middle" class="stepBody">metrics</text>
+
+  <rect x="686" y="350" width="108" height="188" class="card" fill="#eaf3ff" stroke="#bfd3f7" />
+  <text x="740" y="378" text-anchor="middle" class="stepText" fill="#1d4ed8">Evaluate</text>
+  <text x="740" y="402" text-anchor="middle" class="stepBody">Apply</text>
+  <text x="740" y="420" text-anchor="middle" class="stepBody">TTL,</text>
+  <text x="740" y="438" text-anchor="middle" class="stepBody">idle</text>
+  <text x="740" y="456" text-anchor="middle" class="stepBody">&amp; tag</text>
+  <text x="740" y="474" text-anchor="middle" class="stepBody">rules</text>
+
+  <rect x="802" y="350" width="108" height="188" class="card" fill="#fcedf6" stroke="#dfb4d1" />
+  <text x="856" y="378" text-anchor="middle" class="stepText" fill="#b5176b">Decide</text>
+  <text x="856" y="402" text-anchor="middle" class="stepBody">Alert</text>
+  <text x="856" y="420" text-anchor="middle" class="stepBody">/ stop</text>
+  <text x="856" y="438" text-anchor="middle" class="stepBody">/</text>
+  <text x="856" y="456" text-anchor="middle" class="stepBody">scale</text>
+  <text x="856" y="474" text-anchor="middle" class="stepBody">down</text>
+
+  <line x1="562" y1="444" x2="570" y2="444" class="flowBlue" />
+  <line x1="678" y1="444" x2="686" y2="444" class="flowBlue" />
+  <line x1="794" y1="444" x2="802" y2="444" class="flowBlue" />
+
+  <text x="447" y="626" class="section">6. AUTOMATED REMEDIATION</text>
+  <rect x="432" y="638" width="616" height="110" class="card" fill="#eef5ff" stroke="#bfd4f2" />
+  <rect x="446" y="652" width="289" height="80" rx="10" fill="#fff7ee" stroke="#f2d3ab" />
+  <rect x="446" y="662" width="24" height="24" class="icon" fill="#f28a00" />
+  <text x="458" y="678" text-anchor="middle" class="stepText" fill="#ffffff">EC</text>
+  <text x="476" y="678" class="label" fill="#b45309">EC2 Actions</text>
+  <text x="476" y="700" class="small">Stop or terminate idle</text>
+  <text x="476" y="719" class="small">instances</text>
+
+  <rect x="739" y="652" width="289" height="80" rx="10" fill="#fff7ee" stroke="#f2d3ab" />
+  <rect x="739" y="662" width="24" height="24" class="icon" fill="#f28a00" />
+  <text x="751" y="678" text-anchor="middle" class="stepText" fill="#ffffff">AS</text>
+  <text x="769" y="678" class="label" fill="#b45309">ASG Actions</text>
+  <text x="769" y="700" class="small">Scale desired capacity to</text>
+  <text x="769" y="719" class="small">zero</text>
+
+  <text x="432" y="806" class="section">OUTCOMES</text>
+  <rect x="432" y="814" width="598" height="95" rx="12" fill="#ffffff" stroke="#b9dfbe" stroke-dasharray="7 6" />
+
+  <g transform="translate(446,826)">
+    <rect width="86" height="68" rx="8" fill="#f7f8fb" stroke="#d9dce3" />
+    <rect x="35" y="14" width="10" height="10" fill="#1f2937" />
+    <text x="43" y="48" text-anchor="middle" class="small">Stopped</text>
+    <text x="43" y="62" text-anchor="middle" class="small">instances</text>
+  </g>
+
+  <g transform="translate(536,826)">
+    <rect width="86" height="68" rx="8" fill="#f7f8fb" stroke="#d9dce3" />
+    <path d="M41 15 L48 15 L44 29 L49 29 L40 47 L43 33 L37 33 Z" fill="#6b7280" />
+    <text x="43" y="48" text-anchor="middle" class="small">Terminated</text>
+    <text x="43" y="62" text-anchor="middle" class="small">instances</text>
+  </g>
+
+  <g transform="translate(626,826)">
+    <rect width="86" height="68" rx="8" fill="#f7f8fb" stroke="#d9dce3" />
+    <rect x="38" y="14" width="6" height="20" fill="#f59e0b" />
+    <polygon points="34,34 48,34 41,46" fill="#f59e0b" />
+    <text x="43" y="48" text-anchor="middle" class="small">ASG scaled</text>
+    <text x="43" y="62" text-anchor="middle" class="small">to zero</text>
+  </g>
+
+  <g transform="translate(716,826)">
+    <rect width="86" height="68" rx="8" fill="#f7f8fb" stroke="#d9dce3" />
+    <path d="M43 15 C34 15, 30 22, 30 29 C30 41, 43 48, 43 48 C43 48, 56 41, 56 29 C56 22, 52 15, 43 15 Z" fill="none" stroke="#64748b" stroke-width="2" />
+    <text x="43" y="48" text-anchor="middle" class="small">Non-compliant</text>
+    <text x="43" y="62" text-anchor="middle" class="small">alerted</text>
+  </g>
+
+  <g transform="translate(806,826)">
+    <rect width="86" height="68" rx="8" fill="#f7f8fb" stroke="#d9dce3" />
+    <path d="M35 15 H51 V47 H35 Z" fill="none" stroke="#64748b" stroke-width="2" />
+    <path d="M35 20 H51" stroke="#64748b" stroke-width="2" />
+    <text x="43" y="48" text-anchor="middle" class="small">Audit logs</text>
+    <text x="43" y="62" text-anchor="middle" class="small">recorded</text>
+  </g>
+
+  <g transform="translate(426,254)">
+    <path d="M 74 -22 L 74 0" class="flowBlue" />
+    <path d="M 0 28 L 30 28" class="flowBlue" />
+  </g>
+  <path d="M 372 201 L 432 201" class="flowBlue" />
+  <path d="M 1048 188 L 1180 188" class="flowGreen" />
+  <path d="M 1048 422 L 1180 422" class="flowPurple" />
+  <path d="M 915 555 L 915 638" class="flowBlue" />
+  <path d="M 1140 598 L 1180 598" class="flowGray" />
+  <path d="M 740 748 L 740 814" class="flowBlue" />
+  <path d="M 516 588 L 516 638" class="flowBlue" />
+
+  <rect x="250" y="730" width="150" height="76" rx="10" fill="#fff7ee" stroke="#f2d3ab" />
+  <text x="275" y="760" class="label" fill="#b45309">Policy Evaluation</text>
+  <text x="275" y="782" class="small">Rules: TTL, idle, tags</text>
+  <text x="275" y="803" class="small">KeepAlive, DoNotDelete</text>
+
+  <line x1="221" y1="282" x2="221" y2="378" class="flowGray" />
+  <line x1="221" y1="492" x2="221" y2="730" class="flowGray" />
+
+  <rect x="352" y="900" width="898" height="1" fill="#e5e7eb" />
+  <line x1="432" y1="900" x2="1004" y2="900" stroke="#e5e7eb" stroke-width="1" />
+
+  <text x="800" y="926" text-anchor="middle" class="tiny">Trigger / flow · Notifications · Audit logs · Actions · Monitoring / feedback</text>
+</svg>
