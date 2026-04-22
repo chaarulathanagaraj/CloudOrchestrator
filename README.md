@@ -31,13 +31,8 @@ Cloud Orchestrator continuously scans EC2 instances and Auto Scaling Groups, eva
 - Auditing:
   - Every scan/action written to DynamoDB with resource, reason, outcome, timestamp.
 
-## Workflow Architecture
 
-The flow below is inspired by your architecture design and mirrors the implementation in this repository.
 
-![Cloud Orchestrator Workflow Architecture](docs/images/cloud-orchestrator-workflow.svg)
-
-Mermaid source version (for easy edits):
 
 ```mermaid
 flowchart LR
@@ -296,6 +291,4 @@ Project=cloud-orchestrator
 - Scheduler default cadence is `rate(3 hours)`.
 - The scanner only evaluates EC2 instances in `running` state.
 
-## License
 
-Add your preferred license (for example, MIT) before public release.
