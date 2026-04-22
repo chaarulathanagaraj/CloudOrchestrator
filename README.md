@@ -35,37 +35,7 @@ Cloud Orchestrator continuously scans EC2 instances and Auto Scaling Groups, eva
 
 
 
-## Repository Layout
 
-```text
-.
-|-- docs/
-|   |-- architecture.md
-|   |-- build-checklist.md
-|   |-- demo-script.md
-|   |-- policy.md
-|   \-- policy-matrix.md
-|-- infra/
-|   |-- budget-config.json
-|   |-- dynamodb-table.json
-|   |-- iam-policy.json
-|   |-- scheduler-config.json
-|   \-- sns-topic.json
-|-- lambda/
-|   |-- pom.xml
-|   \-- src/main/java/com/cloudcostguardian/
-|       |-- Handler.java
-|       |-- PolicyEngine.java
-|       |-- CloudWatchUtilization.java
-|       |-- Notifier.java
-|       |-- AuditLogger.java
-|       |-- AwsClients.java
-|       |-- Settings.java
-|       \-- EvaluationResult.java
-\-- scripts/
-		|-- deploy-aws.ps1
-		\-- ccg-control.ps1
-```
 
 ## Tech Stack
 
