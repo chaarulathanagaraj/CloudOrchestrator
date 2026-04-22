@@ -34,31 +34,6 @@ Cloud Orchestrator continuously scans EC2 instances and Auto Scaling Groups, eva
 
 
 
-```mermaid
-flowchart LR
-		A[AWS Resources\nEC2 + ASG] --> B[EventBridge Scheduler\nrate(3 hours)]
-		B --> C[Lambda Scanner\ncom.cloudcostguardian.Handler]
-
-		C --> C1[Discover Resources]
-		C1 --> C2[Fetch Metrics\nCloudWatch]
-		C2 --> C3[Evaluate Policy\nTags + Environment + TTL + Idle]
-		C3 --> C4{Decision}
-
-		C4 -->|Compliant| O1[No Action\nAudit SCANNED]
-		C4 -->|Non-compliant| N1[SNS WARN]
-		C4 -->|Action allowed + PERFORM_ACTIONS=true| R1[Remediate\nStop/Terminate/Scale-to-zero]
-		C4 -->|Action allowed + PERFORM_ACTIONS=false| D1[Dry Run\nAudit SKIPPED_DRY_RUN]
-
-		R1 --> N2[SNS ACTION]
-
-		C --> L1[DynamoDB Audit Log\nresource_audit_log]
-		O1 --> L1
-		N1 --> L1
-		R1 --> L1
-		D1 --> L1
-
-		X[AWS Budgets Safety Layer] --> N1
-```
 
 ## Repository Layout
 
